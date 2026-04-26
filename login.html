@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - MRPMS | Mukesh R. Patel Military School, Shirpur</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            navy: { 50: '#eef2ff', 100: '#dce4ff', 200: '#b9c9ff', 400: '#5b7fe8', 600: '#1e3a8a', 700: '#172e6e', 800: '#111f4d', 900: '#0b1533' },
+            gold: { 300: '#fcd34d', 400: '#f6c343', 500: '#d4a017', 600: '#b8860b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .tab-active { border-bottom: 3px solid #d4a017; color: #d4a017; }
+    .login-bg { background: linear-gradient(135deg, #0b1533 0%, #1e3a8a 50%, #0b1533 100%); }
+    .float-anim { animation: floatUp 6s ease-in-out infinite; }
+    .float-anim-delay { animation: floatUp 6s ease-in-out 2s infinite; }
+    @keyframes floatUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .input-field { transition: all 0.3s ease; }
+    .input-field:focus { box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15); }
+    .dark .input-field:focus { box-shadow: 0 0 0 3px rgba(252, 211, 77, 0.15); }
+  </style>
+</head>
+<body class="font-poppins text-gray-700 bg-gray-50 dark:bg-gray-950 dark:text-gray-300 transition-colors duration-300 min-h-screen">
+
+  <!-- Top Bar -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="MRPMS Logo" class="w-10 h-10 rounded-full object-cover" />
+          <div class="hidden sm:block">
+            <p class="font-bold text-navy-800 dark:text-white text-sm leading-tight">Mukesh R. Patel Military School</p>
+            <p class="text-[10px] text-gold-500 font-medium tracking-wide">Shirpur, Maharashtra</p>
+          </div>
+        </a>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-sm font-medium text-navy-800 dark:text-gray-200 hover:text-gold-500 transition-colors hidden sm:inline-flex items-center gap-1">
+            <i class="fas fa-arrow-left text-xs"></i> Back to Home
+          </a>
+          <button id="themeToggle" class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
+            <i class="fas fa-moon text-navy-800 dark:hidden"></i>
+            <i class="fas fa-sun text-gold-400 hidden dark:inline"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="min-h-screen flex pt-16">
+    <!-- Left Panel - Decorative -->
+    <div class="hidden lg:flex lg:w-1/2 login-bg relative items-center justify-center overflow-hidden">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
+      <div class="relative z-10 text-center px-12 max-w-lg">
+        <div class="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 border border-white/20 float-anim overflow-hidden">
+          <img src="assets/logo.png" alt="MRPMS Logo" class="w-full h-full object-cover" />
+        </div>
+        <h2 class="text-3xl xl:text-4xl font-bold text-white mb-4 leading-tight">Welcome to the<br /><span class="text-gold-300">MRPMS Portal</span></h2>
+        <p class="text-white/60 text-sm leading-relaxed mb-10">Access your dedicated portal for staff management, administration, and alumni networking. Stay connected with the MRPMS community.</p>
+        <div class="grid grid-cols-3 gap-6">
+          <div class="text-center float-anim">
+            <div class="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10">
+              <i class="fas fa-user-tie text-gold-300 text-lg"></i>
+            </div>
+            <p class="text-white/70 text-xs">Staff</p>
+          </div>
+          <div class="text-center float-anim-delay">
+            <div class="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10">
+              <i class="fas fa-user-shield text-gold-300 text-lg"></i>
+            </div>
+            <p class="text-white/70 text-xs">Admin</p>
+          </div>
+          <div class="text-center float-anim">
+            <div class="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/10">
+              <i class="fas fa-user-graduate text-gold-300 text-lg"></i>
+            </div>
+            <p class="text-white/70 text-xs">Alumni</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel - Login Form -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-8 py-12">
+      <div class="w-full max-w-md">
+        <div class="text-center mb-8 lg:text-left">
+          <div class="lg:hidden flex items-center justify-center gap-3 mb-6">
+            <img src="assets/logo.png" alt="MRPMS Logo" class="w-12 h-12 rounded-full object-cover" />
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-navy-800 dark:text-white mb-2">Sign In</h1>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Choose your portal and enter your credentials</p>
+        </div>
+
+        <!-- Portal Tabs -->
+        <div class="flex border-b border-gray-200 dark:border-gray-700 mb-8">
+          <button data-tab="staff" class="portal-tab tab-active flex-1 py-3 text-sm font-semibold text-center transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-tie mr-1.5"></i>Staff
+          </button>
+          <button data-tab="admin" class="portal-tab flex-1 py-3 text-sm font-semibold text-center text-gray-400 dark:text-gray-500 transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-shield mr-1.5"></i>Admin
+          </button>
+          <button data-tab="alumni" class="portal-tab flex-1 py-3 text-sm font-semibold text-center text-gray-400 dark:text-gray-500 transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-graduate mr-1.5"></i>Alumni
+          </button>
+        </div>
+
+        <!-- Staff Login Form -->
+        <form id="form-staff" class="portal-form space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Staff ID / Email</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-id-badge"></i></span>
+              <input type="text" placeholder="Enter your Staff ID or email" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Enter your password" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" id="staffPass" />
+              <button type="button" onclick="togglePass('staffPass', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+              <span class="text-sm text-gray-500 dark:text-gray-400">Remember me</span>
+            </label>
+            <a href="#" class="text-sm text-gold-500 hover:text-gold-600 font-medium">Forgot Password?</a>
+          </div>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm">
+            Sign In as Staff <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Admin Login Form -->
+        <form id="form-admin" class="portal-form space-y-5 hidden">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Admin ID</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user-shield"></i></span>
+              <input type="text" placeholder="Enter your Admin ID" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Enter your password" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" id="adminPass" />
+              <button type="button" onclick="togglePass('adminPass', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Security Code</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-key"></i></span>
+              <input type="text" placeholder="Enter 6-digit security code" maxlength="6" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+              <span class="text-sm text-gray-500 dark:text-gray-400">Remember me</span>
+            </label>
+            <a href="#" class="text-sm text-gold-500 hover:text-gold-600 font-medium">Forgot Password?</a>
+          </div>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm">
+            Sign In as Admin <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Alumni Login Form -->
+        <form id="form-alumni" class="portal-form space-y-5 hidden">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email / Alumni ID</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-envelope"></i></span>
+              <input type="text" placeholder="Enter your email or Alumni ID" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Enter your password" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" id="alumniPass" />
+              <button type="button" onclick="togglePass('alumniPass', this)" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Batch Year</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-calendar"></i></span>
+              <input type="text" placeholder="e.g. 2015" maxlength="4" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+              <span class="text-sm text-gray-500 dark:text-gray-400">Remember me</span>
+            </label>
+            <a href="#" class="text-sm text-gold-500 hover:text-gold-600 font-medium">Forgot Password?</a>
+          </div>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm">
+            Sign In as Alumni <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="flex items-center gap-4 my-6">
+          <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+          <span class="text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider">or</span>
+          <div class="flex-1 h-px bg-gray-200 dark:bg-gray-700"></div>
+        </div>
+
+        <!-- Social Login -->
+        <div class="flex gap-3">
+          <button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors text-sm font-medium text-gray-600 dark:text-gray-300">
+            <i class="fab fa-google text-red-500"></i> Google
+          </button>
+          <button class="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-750 transition-colors text-sm font-medium text-gray-600 dark:text-gray-300">
+            <i class="fab fa-microsoft text-blue-500"></i> Microsoft
+          </button>
+        </div>
+
+        <!-- Signup Link -->
+        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
+          Don't have an account?
+          <a href="signup.html" class="text-gold-500 hover:text-gold-600 font-semibold ml-1">Create Account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Portal tab switching
+    const tabs = document.querySelectorAll('.portal-tab');
+    const forms = document.querySelectorAll('.portal-form');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('tab-active'); t.classList.add('text-gray-400', 'dark:text-gray-500'); });
+        tab.classList.add('tab-active');
+        tab.classList.remove('text-gray-400', 'dark:text-gray-500');
+
+        forms.forEach(f => f.classList.add('hidden'));
+        document.getElementById('form-' + tab.dataset.tab).classList.remove('hidden');
+      });
+    });
+
+    // Password toggle
+    function togglePass(id, btn) {
+      const input = document.getElementById(id);
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+      }
+    }
+
+    // Dark mode
+    function applyTheme(dark) {
+      document.getElementById('htmlRoot').classList.toggle('dark', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      applyTheme(true);
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(!document.getElementById('htmlRoot').classList.contains('dark'));
+    });
+
+    // Prevent form submission (demo)
+    document.querySelectorAll('form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Login submitted! (Demo mode — no backend connected)');
+      });
+    });
+  </script>
+</body>
+</html>

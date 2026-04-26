@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" id="htmlRoot">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - MRPMS | Mukesh R. Patel Military School, Shirpur</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            navy: { 50: '#eef2ff', 100: '#dce4ff', 200: '#b9c9ff', 400: '#5b7fe8', 600: '#1e3a8a', 700: '#172e6e', 800: '#111f4d', 900: '#0b1533' },
+            gold: { 300: '#fcd34d', 400: '#f6c343', 500: '#d4a017', 600: '#b8860b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .tab-active { border-bottom: 3px solid #d4a017; color: #d4a017; }
+    .signup-bg { background: linear-gradient(135deg, #0b1533 0%, #1e3a8a 50%, #0b1533 100%); }
+    .float-anim { animation: floatUp 6s ease-in-out infinite; }
+    @keyframes floatUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .input-field { transition: all 0.3s ease; }
+    .input-field:focus { box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15); }
+    .dark .input-field:focus { box-shadow: 0 0 0 3px rgba(252, 211, 77, 0.15); }
+    .strength-bar { transition: width 0.4s ease, background-color 0.4s ease; }
+  </style>
+</head>
+<body class="font-poppins text-gray-700 bg-gray-50 dark:bg-gray-950 dark:text-gray-300 transition-colors duration-300 min-h-screen">
+
+  <!-- Top Bar -->
+  <nav class="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/logo.png" alt="MRPMS Logo" class="w-10 h-10 rounded-full object-cover" />
+          <div class="hidden sm:block">
+            <p class="font-bold text-navy-800 dark:text-white text-sm leading-tight">Mukesh R. Patel Military School</p>
+            <p class="text-[10px] text-gold-500 font-medium tracking-wide">Shirpur, Maharashtra</p>
+          </div>
+        </a>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-sm font-medium text-navy-800 dark:text-gray-200 hover:text-gold-500 transition-colors hidden sm:inline-flex items-center gap-1">
+            <i class="fas fa-arrow-left text-xs"></i> Back to Home
+          </a>
+          <button id="themeToggle" class="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle dark mode">
+            <i class="fas fa-moon text-navy-800 dark:hidden"></i>
+            <i class="fas fa-sun text-gold-400 hidden dark:inline"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="min-h-screen flex pt-16">
+    <!-- Left Panel - Decorative -->
+    <div class="hidden lg:flex lg:w-5/12 signup-bg relative items-center justify-center overflow-hidden">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl"></div>
+      <div class="relative z-10 text-center px-12 max-w-md">
+        <div class="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto mb-8 border border-white/20 float-anim">
+          <i class="fas fa-user-plus text-gold-300 text-3xl"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-white mb-4 leading-tight">Join the <span class="text-gold-300">MRPMS Family</span></h2>
+        <p class="text-white/60 text-sm leading-relaxed mb-8">Create your account to access the portal. Whether you're a staff member, administrator, or proud alumnus, you belong here.</p>
+        <div class="space-y-4 text-left">
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-green-400"></i>
+            </div>
+            <p class="text-white/70 text-sm">Secure & encrypted portal access</p>
+          </div>
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-green-400"></i>
+            </div>
+            <p class="text-white/70 text-sm">Connect with the MRPMS community</p>
+          </div>
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-check text-green-400"></i>
+            </div>
+            <p class="text-white/70 text-sm">Access resources and updates</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel - Signup Form -->
+    <div class="w-full lg:w-7/12 flex items-center justify-center px-4 sm:px-8 py-12">
+      <div class="w-full max-w-lg">
+        <div class="text-center mb-8 lg:text-left">
+          <div class="lg:hidden flex items-center justify-center gap-3 mb-6">
+            <img src="assets/logo.png" alt="MRPMS Logo" class="w-12 h-12 rounded-full object-cover" />
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-bold text-navy-800 dark:text-white mb-2">Create Account</h1>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Select your role and fill in your details</p>
+        </div>
+
+        <!-- Role Tabs -->
+        <div class="flex border-b border-gray-200 dark:border-gray-700 mb-8">
+          <button data-tab="staff" class="portal-tab tab-active flex-1 py-3 text-sm font-semibold text-center transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-tie mr-1.5"></i>Staff
+          </button>
+          <button data-tab="admin" class="portal-tab flex-1 py-3 text-sm font-semibold text-center text-gray-400 dark:text-gray-500 transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-shield mr-1.5"></i>Admin
+          </button>
+          <button data-tab="alumni" class="portal-tab flex-1 py-3 text-sm font-semibold text-center text-gray-400 dark:text-gray-500 transition-all duration-300 hover:text-gold-500">
+            <i class="fas fa-user-graduate mr-1.5"></i>Alumni
+          </button>
+        </div>
+
+        <!-- Staff Signup -->
+        <form id="form-staff" class="portal-form space-y-4">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">First Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="First name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Last Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="Last name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email Address</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-envelope"></i></span>
+              <input type="email" placeholder="you@example.com" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Phone Number</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-phone"></i></span>
+              <input type="tel" placeholder="+91 XXXXX XXXXX" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Department</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-building"></i></span>
+              <select required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm text-gray-500 dark:text-gray-400">
+                <option value="">Select Department</option>
+                <option>Mathematics</option>
+                <option>Science</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Social Studies</option>
+                <option>Physical Education</option>
+                <option>Computer Science</option>
+                <option>Administration</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Staff ID (provided by school)</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-id-badge"></i></span>
+              <input type="text" placeholder="e.g. STF-2026-001" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Create Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Min. 8 characters" required minlength="8" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200 pass-input" />
+              <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 pass-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="mt-2 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="strength-bar h-full w-0 rounded-full bg-red-400"></div>
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 strength-text"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Confirm Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Re-enter password" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <label class="flex items-start gap-2.5 cursor-pointer pt-1">
+            <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+            <span class="text-sm text-gray-500 dark:text-gray-400">I agree to the <a href="#" class="text-gold-500 hover:underline">Terms of Service</a> and <a href="#" class="text-gold-500 hover:underline">Privacy Policy</a></span>
+          </label>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm mt-2">
+            Create Staff Account <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Admin Signup -->
+        <form id="form-admin" class="portal-form space-y-4 hidden">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">First Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="First name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Last Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="Last name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Official Email</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-envelope"></i></span>
+              <input type="email" placeholder="admin@mrpmilitaryschool.ac.in" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Admin Registration Code</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-key"></i></span>
+              <input type="text" placeholder="Provided by principal's office" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1"><i class="fas fa-info-circle mr-1"></i>Contact the principal's office for a registration code</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Designation</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-briefcase"></i></span>
+              <select required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm text-gray-500 dark:text-gray-400">
+                <option value="">Select Designation</option>
+                <option>Principal</option>
+                <option>Vice Principal</option>
+                <option>Head of Department</option>
+                <option>Office Admin</option>
+                <option>IT Admin</option>
+                <option>Accounts</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Create Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Min. 8 characters" required minlength="8" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200 pass-input" />
+              <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 pass-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="mt-2 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="strength-bar h-full w-0 rounded-full bg-red-400"></div>
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 strength-text"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Confirm Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Re-enter password" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <label class="flex items-start gap-2.5 cursor-pointer pt-1">
+            <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+            <span class="text-sm text-gray-500 dark:text-gray-400">I agree to the <a href="#" class="text-gold-500 hover:underline">Terms of Service</a> and <a href="#" class="text-gold-500 hover:underline">Privacy Policy</a></span>
+          </label>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm mt-2">
+            Create Admin Account <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Alumni Signup -->
+        <form id="form-alumni" class="portal-form space-y-4 hidden">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">First Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="First name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Last Name</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-user"></i></span>
+                <input type="text" placeholder="Last name" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email Address</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-envelope"></i></span>
+              <input type="email" placeholder="you@example.com" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Phone Number</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-phone"></i></span>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Batch / Passing Year</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-calendar"></i></span>
+                <input type="text" placeholder="e.g. 2015" maxlength="4" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Current Occupation</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-briefcase"></i></span>
+              <input type="text" placeholder="e.g. Software Engineer at TCS" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Current City</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-map-marker-alt"></i></span>
+              <input type="text" placeholder="e.g. Pune, Maharashtra" class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Create Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Min. 8 characters" required minlength="8" class="input-field w-full pl-11 pr-12 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200 pass-input" />
+              <button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 pass-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="mt-2 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div class="strength-bar h-full w-0 rounded-full bg-red-400"></div>
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-1 strength-text"></p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Confirm Password</label>
+            <div class="relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"><i class="fas fa-lock"></i></span>
+              <input type="password" placeholder="Re-enter password" required class="input-field w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 focus:border-navy-400 dark:focus:border-gold-400 outline-none text-sm dark:text-gray-200" />
+            </div>
+          </div>
+          <label class="flex items-start gap-2.5 cursor-pointer pt-1">
+            <input type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-300 text-navy-600 focus:ring-navy-400" />
+            <span class="text-sm text-gray-500 dark:text-gray-400">I agree to the <a href="#" class="text-gold-500 hover:underline">Terms of Service</a> and <a href="#" class="text-gold-500 hover:underline">Privacy Policy</a></span>
+          </label>
+          <button type="submit" class="w-full py-3.5 bg-navy-600 hover:bg-navy-700 text-white font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl text-sm mt-2">
+            Create Alumni Account <i class="fas fa-arrow-right ml-2"></i>
+          </button>
+        </form>
+
+        <!-- Login Link -->
+        <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
+          Already have an account?
+          <a href="login.html" class="text-gold-500 hover:text-gold-600 font-semibold ml-1">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.portal-tab');
+    const forms = document.querySelectorAll('.portal-form');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => { t.classList.remove('tab-active'); t.classList.add('text-gray-400', 'dark:text-gray-500'); });
+        tab.classList.add('tab-active');
+        tab.classList.remove('text-gray-400', 'dark:text-gray-500');
+        forms.forEach(f => f.classList.add('hidden'));
+        document.getElementById('form-' + tab.dataset.tab).classList.remove('hidden');
+      });
+    });
+
+    // Password visibility toggle
+    document.querySelectorAll('.pass-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const input = btn.closest('.relative').querySelector('.pass-input');
+        const icon = btn.querySelector('i');
+        if (input.type === 'password') {
+          input.type = 'text';
+          icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+          input.type = 'password';
+          icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+      });
+    });
+
+    // Password strength meter
+    document.querySelectorAll('.pass-input').forEach(input => {
+      input.addEventListener('input', () => {
+        const val = input.value;
+        const bar = input.closest('div').parentElement.querySelector('.strength-bar');
+        const text = input.closest('div').parentElement.querySelector('.strength-text');
+        let score = 0;
+        if (val.length >= 8) score++;
+        if (/[A-Z]/.test(val)) score++;
+        if (/[0-9]/.test(val)) score++;
+        if (/[^A-Za-z0-9]/.test(val)) score++;
+
+        const levels = [
+          { w: '0%', color: 'bg-gray-300', label: '' },
+          { w: '25%', color: 'bg-red-400', label: 'Weak' },
+          { w: '50%', color: 'bg-orange-400', label: 'Fair' },
+          { w: '75%', color: 'bg-yellow-400', label: 'Good' },
+          { w: '100%', color: 'bg-green-500', label: 'Strong' }
+        ];
+
+        const level = val.length === 0 ? levels[0] : levels[score] || levels[4];
+        bar.style.width = level.w;
+        bar.className = 'strength-bar h-full rounded-full ' + level.color;
+        text.textContent = level.label;
+      });
+    });
+
+    // Dark mode
+    function applyTheme(dark) {
+      document.getElementById('htmlRoot').classList.toggle('dark', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      applyTheme(true);
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(!document.getElementById('htmlRoot').classList.contains('dark'));
+    });
+
+    // Prevent form submission (demo)
+    document.querySelectorAll('form').forEach(f => {
+      f.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Account created successfully! (Demo mode — no backend connected)');
+      });
+    });
+  </script>
+</body>
+</html>
